@@ -1,10 +1,13 @@
+from fnmatch import translate
 import spotipy
 import os
 import requests
 import json
+import re
 from pprint import pprint 
 from dotenv import load_dotenv
 from spotipy.oauth2 import SpotifyClientCredentials
+from deep_translator import GoogleTranslator
 
 
 load_dotenv() #loads .env file
@@ -40,13 +43,45 @@ print(f'track_name: {track_name}')
 print(f'artist_name: {artist_name}')
 print(f'album_name: {album_name}')
 
-def fetch(artist_name, track_name, album_name, track_duration):      #fetch timed lyrics from LRCLIB
+def fetch(artist_name, track_name, album_name, track_duration):     #fetch lyrics from LRCLIB
     url = f'https://lrclib.net/api/get?artist_name={artist_name}&track_name={track_name}&album_name={album_name}&duration={track_duration}'
-    response = requests.get(url)        
-    try:
-        lyrics = ((json.loads(response.text))['syncedLyrics'])
-        pprint(lyrics)
-    except:
-        print(f'{(json.loads(response.text))['message']}, Reason: {(json.loads(response.text))["name"]}, Code: {(json.loads(response.text))["statusCode"]}')
+    server_response = requests.get(url) 
+    response = ((json.loads(server_response.text))['syncedLyrics']) #use syncedLyrics instead of plainLyrics for timed lyrics.
+    return response
 
-fetch(artist_name, track_name, album_name, track_duration)
+def parse_lyrics(response): #storing timestamp and lyric text as a dictionary
+    lyrics_dict = {}
+    lines = response.strip().split('\n')
+    
+    for line in lines:
+        match = re.match(r'\[(\d+:\d+\.\d+)\]\s*(.*)', line)
+        if match:
+            timestamp = match.group(1)
+            lyric = match.group(2)
+            lyrics_dict[timestamp] = lyric.strip()
+
+    return lyrics_dict
+
+
+response = fetch(artist_name, track_name, album_name, track_duration) #Fetch request
+lyrics_dict = parse_lyrics(response) #Store timestamp and lyric text into dict
+
+
+lyrics_text = []
+for lyric in lyrics_dict.values(): #lyrics text in a list
+    lyrics_text.append(lyric)
+
+#DeepL translation
+translated = []
+i=0
+
+for line in lyrics_text: #translated text into a dictionary
+    i+=1
+    if line == '':
+        pass
+    else:
+        translated_line = GoogleTranslator(source='auto', target='en').translate(line)
+        print(f'{i}: "{translated_line}"')
+        translated.append(translated_line)
+
+print(translated)
