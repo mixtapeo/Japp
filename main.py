@@ -11,8 +11,8 @@ import customtkinter
 
 load_dotenv() #loads .env file: gets virtualised credentials from .env file. replace with credentials if needed
 
-client_id = os.getenv("02e5a9fec3444937b2787b5adb00192d")
-client_secret = os.getenv("f96b3ac5e30249a38422f2a52a80bb44")
+client_id = os.getenv("client_id")
+client_secret = os.getenv("client_secret")
 redirect_uri = 'http://localhost:8888/callback'
 
 customtkinter.set_appearance_mode("dark")
