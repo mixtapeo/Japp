@@ -1,4 +1,4 @@
-<b> NOTE:</b> Currently still under development. Achieved LRCLIB & Spotify API sync.
+<b> NOTE:</b> Currently still under development. Achieved LRCLIB & Spotify API sync. Expect bugs.
 
 1. Input client_id and client_secret from your spotify developer dashboard. Make sure to check off on the 'Web API' option.
 
