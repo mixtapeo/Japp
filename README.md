@@ -34,3 +34,9 @@ If this doesn't work, kindly open main.py, then open the 'spotipy' library, and 
 #Virtualised environment variables for credentials.
 #Update button function: Update and show current playing song, artist, album. Also used to save API calls by comparing previously playing song and current request updated song: if same APIs not called.
 #Terminal updates on what's happening, making it easier to debug.
+
+
+
+CREDITS
+spotipy: https://github.com/spotipy-dev/spotipy
+deep-translator: https://github.com/nidhaloff/deep-translator?tab=readme-ov-file
