@@ -12,11 +12,13 @@
 <b>NOTE:</b> USE 'export' instead of set if you use mac or linux.<br />
 <b>NOTE:</b> Above instructions are for windows 10 powershell.<br />
 If this doesn't work, kindly open main.py, then open the 'spotipy' library, and set the credentials in there.
+    
+3. Make sure to 'pip install <requirements>' from requirements.txt.
 
-3. Run main.py by opening command at the containing folder (click on the top bar and type 'cmd'), then:
+4. Run main.py by opening command at the containing folder (click on the top bar and type 'cmd'), then:
     python main.py
 
-4. Click on 'Approve' when asked for authorization.
+5. Click on 'Approve' when asked for authorization.
 
 
 #TODO
