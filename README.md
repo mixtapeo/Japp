@@ -1,5 +1,8 @@
 <b> NOTE:</b> Currently still under development. Achieved LRCLIB & Spotify API sync. Expect bugs.
 
+Video tutorial: https://youtu.be/BnLlqjDA4aM
+
+Instructions:
 1. Input client_id and client_secret from your spotify developer dashboard. Make sure to check off on the 'Web API' option.
 
 2. Click on the explorer's top bar, type 'cmd', run these commands, one by one. This will initialise your credentials into the code:
