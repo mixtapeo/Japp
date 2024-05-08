@@ -1,0 +1,5 @@
+deep_translator==1.11.4
+python-dotenv==1.0.1
+requests==2.31.0
+spotipy==2.23.0
+customtkinter==5.2.2

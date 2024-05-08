@@ -1,0 +1,7 @@
+python -m venv env
+set env/bin/activate
+python -m pip install spotipy --upgrade pip
+#For WINDOWS 10 POWERSHELL. OPEN IN EITHER VSCODE OR POWERSHELL CONTAINING FOLDER
+$env:SPOTIPY_CLIENT_ID="02e5a9fec3444937b2787b5adb00192d"
+$env:SPOTIPY_CLIENT_SECRET="7e0a4740c84f48559dd928aa7b6476a0"
+$env:SPOTIPY_REDIRECT_URI="http://localhost:8888/callback"
