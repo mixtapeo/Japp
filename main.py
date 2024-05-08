@@ -9,7 +9,7 @@ from deep_translator import GoogleTranslator
 from pprint import pprint
 import customtkinter
 
-load_dotenv() #loads .env file: gets virtualised credentials from .env file. replace with credentials if needed
+load_dotenv() #loads .env file: gets virtuaDlised credentials from .env file. replace with credentials if needed
 
 client_id = os.getenv("client_id")
 client_secret = os.getenv("client_secret")
@@ -132,7 +132,6 @@ def translate_batch(lines):
     print('in batch')
     try:
         translations = GoogleTranslator(source='auto', target='en').translate_batch(lines)
-        print(translations)
         print('batch translation complete.')
         return translations
     except Exception as e:
@@ -151,13 +150,12 @@ def translate():
             batch = lyrics_list[i:i+batch_size]
             translated_batch = translate_batch(batch)
             translated.extend(translated_batch)
-            print(f'{i}: {translated_batch}')
             for original, translated_line in zip(batch, translated_batch):
                 original_text += original + "\n"
                 translated_text += translated_line + "\n"
                 root.update()
-        textbox.insert("end", original_text)
-        textbox_2.insert("end", translated_text)
+        textbox.insert("insert", original_text)
+        textbox_2.insert("insert", translated_text)
         root.update()
         return translated
 
@@ -203,9 +201,10 @@ response = fetch(a,b,c,d)
 current_playing_box.configure(text = f'Now Playing: {b} - {a}, on {c}')
 parse_lyrics(response)
 button.configure(command = update)
-update()
-root.after(0, execute_after_mainloop) # Execute the code regardless of root.mainloop(). If translate() is placed after root.mainloop() it wont execute.
+
 root.mainloop()
+root.after(0, execute_after_mainloop) # Execute the code regardless of root.mainloop(). If translate() is placed after root.mainloop() it wont execute.
+
 
 #TODO
 #inlcude jisho style addon
