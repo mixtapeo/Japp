@@ -40,8 +40,8 @@ def ui():                                                                       
 
     root = customtkinter.CTk()
     root = customtkinter.CTk()
-    width: int = 1400
-    height: int = 800
+    width = 1400
+    height = 800
     root.geometry(f'{width}x{height}')
     root.title("LyriSync!")
 
@@ -69,8 +69,6 @@ def ui():                                                                       
 
     info_label = customtkinter.CTkLabel(master=root, width=2, corner_radius=0, text = "by @mixtapeo, 2024.", font=("Noto Sans", 10))
     info_label.pack()        
-
-    button.bind('<Escape>', lambda event: quit)
 
     root.mainloop()
 
@@ -274,9 +272,6 @@ def execute_after_mainloop():                                               #TOD
     parse_lyrics(response)
     current_playing_box.configure(text = f'Now Playing: {b} - {a}, on {c}')
     translate()
-
-def quit():
-    root.destroy()
 
 if __name__ == "__main__":
     #Multithreading + Calls
