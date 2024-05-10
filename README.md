@@ -58,4 +58,5 @@ If this doesn't work, kindly open main.py, then open the 'spotipy' library, and 
 
 <h2>CREDITS</h2>
 spotipy: https://github.com/spotipy-dev/spotipy<br />
-deep-translator: https://github.com/nidhaloff/deep-translator?tab=readme-ov-file
+deep-translator: https://github.com/nidhaloff/deep-translator?tab=readme-ov-file<br />
+customtkinter: https://github.com/TomSchimansky/CustomTkinter
