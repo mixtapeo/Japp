@@ -1,5 +1,5 @@
 <h2> Features </h2>
-<b> NOTE:</b> Currently still under development. Achieved LRCLIB & Spotify API sync. Expect bugs.
+<b> NOTE:</b> Development is paused. Achieved LRCLIB & Spotify API sync. Expect bugs.
 
 ![image](https://github.com/mixtapeo/LyriSync/assets/64733018/a9f4c73f-d461-4710-93b2-06ba6788c656)
 <h4>Sync your spotify songs with LyriSync for automatic lyrics & translations!</h4>
