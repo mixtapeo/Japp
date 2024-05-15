@@ -7,6 +7,7 @@ Currently working on in-place definitions. This app is aimed at language learner
 
 <h2> Installation </h2>
 Video tutorial: https://youtu.be/BnLlqjDA4aM <br /><br />
+Note: Updated video will be posted at some point <br /><br />
 
 Instructions:
 1. Input client_id and client_secret from your spotify developer dashboard. Make sure to check off on the 'Web API' option.
