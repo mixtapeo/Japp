@@ -1,7 +1,9 @@
 
-*.txt
-LICENSE
-README.md
-requirements.txt
-requirements.txt
-README.md
+.venv
+test_env
+env-3.10-old
+user.themes
+test.py
+othertest.py
+erm.py
+uitest.py
