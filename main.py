@@ -218,8 +218,8 @@ class LyriSyncApp(customtkinter.CTk):
                     except Exception as e:
                         print(f"Translation error: {e}")
                         translated_chunk.append("")
-                        self.error_box.config(text = "Error translating. Slow down.")
-                return translated_chunk
+                        self.error_box.config(text = "Error translating. Slow down (probably went over googletranslate API call limit).")
+                return translated_chunk 
             
             with ThreadPoolExecutor(max_workers=4) as executor:                         #Use a ThreadPoolExecutor for parallel translation
                 translated_chunks = list(executor.map(translate_chunk, chunks))
@@ -274,7 +274,8 @@ class LyriSyncApp(customtkinter.CTk):
         current_playing_old = current_playing_new
         print('SAVED new song state')
                   
-    def highlighter(text):                  #TODO WIP: Highlights current lyric playing. Try working with index of text in textbox, changing its color, and using syncedTime info
+    def highlighter(self, text):                  #TODO WIP: Highlights current lyric playing. Try working with index of text in textbox, changing its color, and using syncedTime info
+
         text.tag_add("start", "1.11","1.17")
         text.tag_config("start", background= "black", foreground= "white")
 
@@ -334,7 +335,8 @@ if __name__ == "__main__":
 #Spotify, LRC LIB, Google Translate API calls and response + errors handling with information displayed about errors to user.
 #GUI showing translated, original, and update button. Scrollable textboxes.
 #Virtualised environment variables for credentials.
-#Update button function: Update and show current playing song, artist, album. Also used to save API calls by comparing previously playing song and current request updated song: if same APIs not called.
+#Update button function: Update and show current playing song, artist, album and display cover. 
+#Saved API calls by comparing previously playing song and current request updated song: if same APIs not called.
 #Terminal updates on what's happening, making it easier to debug.
 #Fully commented, organised code.
 
